@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wallstreet\n"
-"POT-Creation-Date: 2023-01-25 14:29+0530\n"
+"POT-Creation-Date: 2024-10-21 16:38+0530\n"
 "PO-Revision-Date: 2018-09-26 17:24+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:10 404.php:43 functions/breadcrumbs/breadcrumbs.php:102
+#: 404.php:10 404.php:43 functions/breadcrumbs/breadcrumbs.php:129
 msgid "Error 404"
 msgstr ""
 
@@ -44,7 +44,7 @@ msgstr ""
 
 #: admin/inc/class-webriti-about-page.php:77
 #: admin/inc/include-companion.php:43 admin/inc/plugin-include-control.php:41
-#: functions/customizer-notify/wallstreet-customizer-notify.php:111
+#: functions/customizer-notify/wallstreet-customizer-notify.php:112
 msgid "Activating"
 msgstr ""
 
@@ -116,80 +116,86 @@ msgstr ""
 msgid "Demo Import"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:459
+#: admin/inc/class-webriti-about-page.php:461
+#: class-tgm-plugin-activation.php:2717 functions.php:376
+#: functions/customizer-notify/wallstreet-customizer-notify-section.php:257
+msgid "Install"
+msgstr ""
+
+#: admin/inc/class-webriti-about-page.php:468
 #, php-format
 msgid "Install %s Now"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:461
+#: admin/inc/class-webriti-about-page.php:470
 #: admin/inc/include-companion.php:82
 msgid "Install & Activate"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:478
+#: admin/inc/class-webriti-about-page.php:488
 #, php-format
 msgid "Activate %s Now"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:480
+#: admin/inc/class-webriti-about-page.php:490
 #: class-tgm-plugin-activation.php:2726
 #: functions/customizer/customizer_recommended_plugin.php:19
 msgid "Activate"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:483
+#: admin/inc/class-webriti-about-page.php:493
 #: class-tgm-plugin-activation.php:2321
 msgid "Active"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:593
+#: admin/inc/class-webriti-about-page.php:603
 #: admin/inc/include-companion.php:81 admin/inc/include-companion.php:98
-#: functions.php:331 functions.php:425
+#: functions.php:372
 msgid "Webriti Companion"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:597
+#: admin/inc/class-webriti-about-page.php:607
 msgid ""
 "It is highly recommended that you install the Webriti Companion plugin to "
 "have access to the advance Frontpage sections and other theme features"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:601
+#: admin/inc/class-webriti-about-page.php:611
 msgid "Contact Form 7"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:605
+#: admin/inc/class-webriti-about-page.php:615
 msgid ""
 "It is recommended that you install the Contact Form 7 plugin to show "
 "contact form on pages"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:609
+#: admin/inc/class-webriti-about-page.php:619
 msgid "WooCommerce"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:613
+#: admin/inc/class-webriti-about-page.php:623
 msgid ""
 "To create a shop page you just need to install this plugin & activate it"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:617
+#: admin/inc/class-webriti-about-page.php:627
 msgid "One Click Demo Import"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:621
+#: admin/inc/class-webriti-about-page.php:631
 msgid ""
 "It is recommended that you install & activate the One Click Demo Import "
 "plugin to import the default demo data and starter sites"
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:629
+#: admin/inc/class-webriti-about-page.php:639
 msgid ""
 "To display the posts in a beautiful slider with multiple options, install "
 "& activate this plugin."
 msgstr ""
 
-#: admin/inc/class-webriti-about-page.php:637
+#: admin/inc/class-webriti-about-page.php:647
 msgid ""
 "It is recommended that you install & activate the Seo Optimized Images "
 "plugin to dynamically insert SEO Friendly alt attributes and title "
@@ -237,7 +243,7 @@ msgid "GDPR Compliant"
 msgstr ""
 
 #: admin/tab-pages/free_vs_pro.php:23
-#: functions/customizer/customizer-header-layout.php:43
+#: functions/customizer/customizer-header-layout.php:39
 msgid "Header Settings"
 msgstr ""
 
@@ -727,7 +733,7 @@ msgid "Read More"
 msgstr ""
 
 #: archive.php:92 author.php:77 category.php:78 functions.php:120
-#: functions/breadcrumbs/breadcrumbs.php:107
+#: functions/breadcrumbs/breadcrumbs.php:134
 #: functions/customizer/customizer-sidebar-layout.php:81 index.php:124
 #: single.php:74 tag.php:70
 msgid "Page"
@@ -1063,10 +1069,6 @@ msgstr ""
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: class-tgm-plugin-activation.php:2717
-msgid "Install"
-msgstr ""
-
 #: class-tgm-plugin-activation.php:2723
 msgid "Update"
 msgstr ""
@@ -1272,39 +1274,43 @@ msgstr ""
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:422
+#: functions.php:369
 #, php-format
 msgid "Thank you for installing the %1$s theme."
 msgstr ""
 
-#: functions.php:424
+#: functions.php:371
 msgid "We highly recommend you to install and activate the"
 msgstr ""
 
-#: functions.php:427
+#: functions.php:374
 msgid ""
 "This plugin will unlock enhanced features to build a beautiful website."
 msgstr ""
 
-#: functions/breadcrumbs/breadcrumbs.php:5
+#: functions/breadcrumbs/breadcrumbs.php:32
 #: functions/menu/default_menu_walker.php:17 index.php:18
 msgid "Home"
 msgstr ""
 
-#: functions/breadcrumbs/breadcrumbs.php:28
+#: functions/breadcrumbs/breadcrumbs.php:55
 msgid "Archive by category"
 msgstr ""
 
-#: functions/breadcrumbs/breadcrumbs.php:31
+#: functions/breadcrumbs/breadcrumbs.php:58
 msgid "Search results for "
 msgstr ""
 
-#: functions/breadcrumbs/breadcrumbs.php:94
+#: functions/breadcrumbs/breadcrumbs.php:121
 msgid "Posts tagged"
 msgstr ""
 
-#: functions/breadcrumbs/breadcrumbs.php:99
+#: functions/breadcrumbs/breadcrumbs.php:126
 msgid "Articles posted by"
+msgstr ""
+
+#: functions/customizer-notify/wallstreet-customizer-notify-section.php:252
+msgid "Webriti Comapnion"
 msgstr ""
 
 #: functions/customizer/customizer-blog.php:10
@@ -1356,13 +1362,13 @@ msgid "Copyright text"
 msgstr ""
 
 #: functions/customizer/customizer-footer-layout.php:17
-#: functions/customizer/customizer-header-layout.php:16
+#: functions/customizer/customizer-header-layout.php:13
 #: functions/customizer/customizer-header-option.php:15
 msgid "General"
 msgstr ""
 
 #: functions/customizer/customizer-footer-layout.php:25
-#: functions/customizer/customizer-header-layout.php:25
+#: functions/customizer/customizer-header-layout.php:22
 #: functions/customizer/customizer-header-option.php:30
 msgid "Style"
 msgstr ""
@@ -1439,58 +1445,80 @@ msgstr ""
 msgid "Copyright Link Color"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:58
+#: functions/customizer/customizer-general.php:6
+msgid "Breadcrumb Settings"
+msgstr ""
+
+#: functions/customizer/customizer-general.php:19
+msgid "Breadcrumb type"
+msgstr ""
+
+#: functions/customizer/customizer-general.php:20
+msgid ""
+"If you use other than \"default\" one you will need to install and "
+"activate respective plugins"
+msgstr ""
+
+#: functions/customizer/customizer-general.php:20
+msgid "and"
+msgstr ""
+
+#: functions/customizer/customizer-general.php:26
+msgid "Default"
+msgstr ""
+
+#: functions/customizer/customizer-header-layout.php:52
 msgid "Header Layout"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:86
+#: functions/customizer/customizer-header-layout.php:78
 msgid "Header Container Width"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:105
+#: functions/customizer/customizer-header-layout.php:95
 msgid "Enable/Disable Search Icon"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:122
+#: functions/customizer/customizer-header-layout.php:110
 msgid "Enable/Disable Cart Icon"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:136
+#: functions/customizer/customizer-header-layout.php:123
 msgid "Header Background Color"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:137
+#: functions/customizer/customizer-header-layout.php:124
 msgid "This setting does not work in the default header overlay layout."
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:150
+#: functions/customizer/customizer-header-layout.php:137
 #: functions/customizer/customizer-typography.php:195
 msgid "Menus"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:176
-#: functions/customizer/customizer-header-layout.php:250
+#: functions/customizer/customizer-header-layout.php:163
+#: functions/customizer/customizer-header-layout.php:237
 msgid "Text/Link Color"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:188
+#: functions/customizer/customizer-header-layout.php:175
 msgid "Hover Color"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:200
+#: functions/customizer/customizer-header-layout.php:187
 msgid "Active Link Color"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:213
+#: functions/customizer/customizer-header-layout.php:200
 #: functions/customizer/customizer-typography.php:268
 msgid "Submenus"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:238
+#: functions/customizer/customizer-header-layout.php:225
 msgid "Background Color"
 msgstr ""
 
-#: functions/customizer/customizer-header-layout.php:262
+#: functions/customizer/customizer-header-layout.php:249
 msgid "Link Hover Color"
 msgstr ""
 
@@ -1723,39 +1751,35 @@ msgstr ""
 msgid "Single Post"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:7
-msgid "Social link settings"
-msgstr ""
-
-#: functions/customizer/customizer-social.php:15
+#: functions/customizer/customizer-social.php:9
 msgid "Social Links"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:35
+#: functions/customizer/customizer-social.php:28
 msgid "Enable social media links on header section"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:54
+#: functions/customizer/customizer-social.php:47
 msgid "Enable social media links on footer section"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:75
+#: functions/customizer/customizer-social.php:68
 msgid "Twitter URL"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:94
+#: functions/customizer/customizer-social.php:87
 msgid "Facebook URL"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:114
+#: functions/customizer/customizer-social.php:107
 msgid "LinkedIn URL"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:134
+#: functions/customizer/customizer-social.php:127
 msgid "YouTube URL"
 msgstr ""
 
-#: functions/customizer/customizer-social.php:154
+#: functions/customizer/customizer-social.php:147
 msgid "Instagram URL"
 msgstr ""
 
@@ -2053,7 +2077,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:132
+#: header.php:126
 msgid "Toggle navigation"
 msgstr ""
 

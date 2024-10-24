@@ -302,59 +302,6 @@ function wallstreet_custmizer_style() {
 }
 add_action('customize_controls_print_styles', 'wallstreet_custmizer_style');
 require_once get_template_directory() . '/class-tgm-plugin-activation.php';
-add_action('tgmpa_register', 'wallstreet_register_required_plugins');
-/**
- * Register the required plugins for this theme.
- *
- * In this example, we register five plugins:
- * - one included with the TGMPA library
- * - two from an external source, one from an arbitrary source, one from a GitHub repository
- * - two from the .org repo, where one demonstrates the use of the `is_callable` argument
- *
- * The variables passed to the `tgmpa()` function should be:
- * - an array of plugin arrays;
- * - optionally a configuration array.
- * If you are not changing anything in the configuration array, you can remove the array and remove the
- * variable from the function call: `tgmpa( $plugins );`.
- * In that case, the TGMPA default settings will be used.
- *
- * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
- */
-function wallstreet_register_required_plugins() {
-    /*
-     * Array of plugin arrays. Required keys are name and slug.
-     * If the source is NOT from the .org repo, then source is also required.
-     */
-    $plugins = array(
-        // This is an example of how to include a plugin from the WordPress Plugin Repository.
-        array(
-            'name' => esc_html__('Webriti Companion','wallstreet'),
-            'slug' => 'webriti-companion',
-            'required' => false,
-        )
-    );
-    /*
-     * Array of configuration settings. Amend each line as needed.
-     *
-     * TGMPA will start providing localized text strings soon. If you already have translations of our standard
-     * strings available, please help us make TGMPA even better by giving us access to these translations or by
-     * sending in a pull-request with .po file(s) with the translations.
-     *
-     * Only uncomment the strings in the config array if you want to customize the strings.
-     */
-    $config = array(
-        'id' => 'wallstreet', // Unique ID for hashing notices for multiple instances of TGMPA.
-        'default_path' => '', // Default absolute path to bundled plugins.
-        'menu' => 'tgmpa-install-plugins', // Menu slug.
-        'has_notices' => true, // Show admin notices or not.
-        'dismissable' => true, // If false, a user cannot dismiss the nag message.
-        'dismiss_msg' => '', // If 'dismissable' is false, this message will be output at top of nag.
-        'is_automatic' => false, // Automatically activate plugins after installation or not.
-        'message' => '', // Message to output right before the plugins table.
-    );
-
-    tgmpa($plugins, $config);
-}
 
 // add css on activate webriti-companion plugin
 
@@ -426,18 +373,7 @@ if( $wallstreet_theme->name == 'Wallstreet' || $wallstreet_theme->name == 'Walls
                     <br>
                     <?php esc_html_e( 'This plugin will unlock enhanced features to build a beautiful website.', 'wallstreet' ); ?>
                 </p>
-                <?php
-                $wallstreet_companion_about_page = Wallstreet_About_Page();            
-                $wallstreet_actions = $wallstreet_companion_about_page->recommended_actions;
-                $wallstreet_actions_todo = get_option( 'recommended_actions', false );
-                if($wallstreet_actions): 
-                    foreach ($wallstreet_actions as $key => $wallstreet_val):
-                        if($wallstreet_val['id']=='install_webriti-companion'):
-                            /* translators: %s: theme name */
-                            echo '<p>'.wp_kses_post($wallstreet_val['link']).'</p>';
-                        endif;
-                    endforeach;
-                endif;?>
+                <button id="install-plugin-button-welcome-page" data-plugin-url="<?php echo esc_url( 'https://webriti.com/extensions/webriti-companion.zip');?>"><?php echo esc_html__( 'Install', 'wallstreet' ); ?></button>
             </div>
         </div>
         
@@ -608,4 +544,101 @@ function wallstreet_get_fonts_url() {
     );
     return apply_filters( 'wallstreet_get_fonts_url', add_query_arg( $query_args, 'https://fonts.googleapis.com/css' ) );
 }
-?>
+
+// Hook the AJAX action for logged-in users
+add_action('wp_ajax_wallstreet_check_plugin_status', 'wallstreet_check_plugin_status');
+
+function wallstreet_check_plugin_status() {
+    if (!current_user_can('install_plugins')) {
+        wp_send_json_error('You do not have permission to manage plugins.');
+        return;
+    }
+
+    if (!isset($_POST['plugin_slug'])) {
+        wp_send_json_error('No plugin slug provided.');
+        return;
+    }
+
+    $plugin_slug = sanitize_text_field($_POST['plugin_slug']);
+    $plugin_main_file = $plugin_slug . '/' . $plugin_slug . '.php'; // Adjust this based on your plugin structure
+
+    // Check if the plugin exists
+    $plugins = get_plugins();
+    if (isset($plugins[$plugin_main_file])) {
+        if (is_plugin_active($plugin_main_file)) {
+            wp_send_json_success(array('status' => 'activated'));
+        } else {
+            wp_send_json_success(array('status' => 'installed'));
+        }
+    } else {
+        wp_send_json_success(array('status' => 'not_installed'));
+    }
+}
+
+// Existing AJAX installation function for installing and activating
+add_action('wp_ajax_wallstreet_install_activate_plugin', 'wallstreet_install_and_activate_plugin');
+
+function wallstreet_install_and_activate_plugin() {
+    if (!current_user_can('install_plugins')) {
+        wp_send_json_error('You do not have permission to install plugins.');
+        return;
+    }
+
+    if (!isset($_POST['plugin_url'])) {
+        wp_send_json_error('No plugin URL provided.');
+        return;
+    }
+
+    // Include necessary WordPress files for plugin installation
+    include_once(ABSPATH . 'wp-admin/includes/file.php');
+    include_once(ABSPATH . 'wp-admin/includes/misc.php');
+    include_once(ABSPATH . 'wp-admin/includes/class-wp-upgrader.php');
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+
+    $plugin_url = esc_url($_POST['plugin_url']);
+    $plugin_slug = sanitize_text_field($_POST['plugin_slug']);
+    $plugin_main_file = $plugin_slug . '/' . $plugin_slug . '.php'; // Ensure this matches your plugin structure
+
+    // Download the plugin file
+    WP_Filesystem();
+    $temp_file = download_url($plugin_url);
+
+    if (is_wp_error($temp_file)) {
+        wp_send_json_error($temp_file->get_error_message());
+        return;
+    }
+
+    // Unzip the plugin to the plugins folder
+    $plugin_folder = WP_PLUGIN_DIR;
+    $result = unzip_file($temp_file, $plugin_folder);
+    
+    // Clean up temporary file
+    unlink($temp_file);
+
+    if (is_wp_error($result)) {
+        wp_send_json_error($result->get_error_message());
+        return;
+    }
+
+    // Activate the plugin if it was installed
+    $activate_result = activate_plugin($plugin_main_file);
+
+    
+
+    // Return success with redirect URL
+    wp_send_json_success(array('redirect_url' => admin_url('admin.php?page=wallstreet-welcome')));
+}
+
+// Enqueue JavaScript for the button functionality
+add_action('admin_enqueue_scripts', 'wallstreet_enqueue_plugin_installer_script');
+
+function wallstreet_enqueue_plugin_installer_script() {
+    global $hook_suffix;
+    wp_enqueue_script('wallstreet-plugin-installer-js',  WALLSTREET_TEMPLATE_DIR_URI . '/admin/assets/js/plugin-installer.js', array('jquery'), null, true);
+    wp_localize_script('wallstreet-plugin-installer-js', 'pluginInstallerAjax', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'hook_suffix' => $hook_suffix,
+        'nonce' => wp_create_nonce('plugin_installer_nonce'),
+
+    ));
+}
