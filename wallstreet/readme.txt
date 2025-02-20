@@ -3,8 +3,8 @@
 Contributors: priyanshumittal
 Tags: full-width-template, threaded-comments, right-sidebar, one-column, two-columns, custom-menu, sticky-post, translation-ready, featured-images, blog, footer-widgets
 Requires at least: 4.5
-Tested up to: 6.6
-Stable tag: 2.8.3
+Tested up to: 6.7
+Stable tag: 2.8.4
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -25,11 +25,13 @@ Keyboard navigation is working properly in the forward direction by using the ta
 
 == License ==
 
-Wallstreet WordPress Theme, Copyright (C) 2015-2024, priyanshumittal
+Wallstreet WordPress Theme, Copyright (C) 2015-2025, priyanshumittal
 Wallstreet WordPress Theme is distributed under the terms of the GNU GPL
 
 == Changelog ==
 
+@version 2.8.4
+1. Fixed error notice issue.
 @version 2.8.3
 1. Updated the options page.
 @version 2.8.2
@@ -354,4 +356,4 @@ License: Under the terms of the GNU General Public License
 Source: https://wordpress.org/plugins/woocommerce/
 
 * Images on /images folder
-Copyright (C) 2015-2024, Webriti and available as [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html)
+Copyright (C) 2015-2025, Webriti and available as [GPLv2](https://www.gnu.org/licenses/gpl-2.0.html)

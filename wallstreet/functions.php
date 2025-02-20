@@ -336,15 +336,19 @@ if (!get_option('wallstreet_user', false)) {
 }
 
 //Custom CSS compatibility
-$wallstreet_current_options = wp_parse_args(get_option('wallstreet_pro_options', array()), wallstreet_theme_data_setup());
-if ($wallstreet_current_options['webrit_custom_css'] != '' && $wallstreet_current_options['webrit_custom_css'] != 'nomorenow') {
-    $wallstreet_css = '';
-    $wallstreet_css .= $wallstreet_current_options['webrit_custom_css'];
-    $wallstreet_css .= (string) wp_get_custom_css(get_stylesheet());
-    $wallstreet_current_options['webrit_custom_css'] = 'nomorenow';
-    update_option('wallstreet_pro_options', $wallstreet_current_options);
-    wp_update_custom_css_post($wallstreet_css, array());
+function wallstreet_custom_css_compatibility() {
+    $wallstreet_current_options = wp_parse_args(get_option('wallstreet_pro_options', array()), wallstreet_theme_data_setup());
+    if ($wallstreet_current_options['webrit_custom_css'] != '' && $wallstreet_current_options['webrit_custom_css'] != 'nomorenow') {
+        $wallstreet_css = '';
+        $wallstreet_css .= $wallstreet_current_options['webrit_custom_css'];
+        $wallstreet_css .= (string) wp_get_custom_css(get_stylesheet());
+        $wallstreet_current_options['webrit_custom_css'] = 'nomorenow';
+        update_option('wallstreet_pro_options', $wallstreet_current_options);
+        wp_update_custom_css_post($wallstreet_css, array());
+    }
 }
+add_action('wp_loaded', 'wallstreet_custom_css_compatibility');
+
 if( $wallstreet_theme->name == 'Wallstreet' || $wallstreet_theme->name == 'Wallstreet child' || $wallstreet_theme->name == 'Wallstreet Child' ) {
     // Notice to add required plugin
     function wallstreet_admin_plugin_notice_warn() {
