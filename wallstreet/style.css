@@ -4,9 +4,9 @@ Theme URI: https://webriti.com/wallstreet-lite-version-details-page/
 Author: webriti
 Author URI: https://www.webriti.com
 Description: WallStreet is a Business WordPress Theme that contains many features for customizing your website as you need. Already, thousands of users are enjoying this theme because it is designed for multiple businesses like corporates, law firms, digital media agencies, architecture firms, personal blogs, portfolios and freelancer websites. The theme is developed using Bootstrap 3 CSS framework which makes it friendly for all devices such as mobiles, tablets, and laptops, etc. In WallStreet Lite, you can easily set a Featured Banner / Slide, Social Icons in the header, Contact Information, Services, Portfolio, and a 4-column widgetized footer. Several page templates are also added: Homepage and a Full Width page template. In the premium version, you will get 2 color skins (Lite and Dark), 10 predefined color schemes, a feature for creating your own custom color scheme, an eye-catching slider, and Services, Testimonials, Portfolio, Clients / Sponsors, Blog Layouts, Layout Manager and Latest News. You will also get various page templates including About, Services, Portfolio, Blog and Contact Us. The theme has support for popular plugins such as WPML, Polylang and JetPack Gallery Extensions. Just navigate to Appearance / Customize to start customizing. Both the lite and premium versions of WallStreet theme come with various locales. This theme is General Data Protection Regulation ready,It comes with WP GDPR Compliant Check the theme demo at https://wallstreet.webriti.com/
-Version: 2.8.4
+Version: 2.8.4.1
 Requires at least: 4.5
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 5.4
 Tags: full-width-template, threaded-comments, right-sidebar, one-column, two-columns, custom-menu, sticky-post, translation-ready, featured-images, blog, footer-widgets
 License: GPLv2 or later
@@ -3543,3 +3543,4 @@ div.wpcf7-validation-errors {
 ol.breadcrumbs {
     font-size: 15px;
 }
+.wp-block-cover { margin:10px; }

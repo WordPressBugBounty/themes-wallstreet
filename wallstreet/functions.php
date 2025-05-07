@@ -399,8 +399,11 @@ if( $wallstreet_theme->name == 'Wallstreet' || $wallstreet_theme->name == 'Walls
     <?php
 
     }
-    add_action( 'admin_notices', 'wallstreet_admin_plugin_notice_warn' );
-    add_action( 'wp_ajax_dismissed_notice_handler', 'wallstreet_ajax_notice_handler');
+    global $pagenow;
+    if ( "themes.php" == $pagenow && is_admin() ) {
+        add_action( 'admin_notices', 'wallstreet_admin_plugin_notice_warn' );
+        add_action( 'wp_ajax_dismissed_notice_handler', 'wallstreet_ajax_notice_handler');
+    }
 
     function wallstreet_ajax_notice_handler() {
         update_option( 'dismissed-wallstreet_comanion_plugin', TRUE );
